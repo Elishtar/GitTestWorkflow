@@ -50,7 +50,7 @@ git commit -a -m "Commit change"
 
 git checkout master
 
-git merge --no-ff release-1.1
+git merge --no-ff release-1.1 -m "Message"
 
 git tag -a 1.1 -m "Tag message"
 
@@ -58,10 +58,34 @@ git tag -a 1.1 -m "Tag message"
 
 git checkout develop
 
-git merge --no-ff release-1.1
+git merge --no-ff release-1.1 -m "Message"
 
 после этого можно удалять релизную ветку
 
 git branch -d release-1.1
+
+
+Ветви исправлений (hotfix branches)
+
+Могут порождаться от: master
+Должны вливаться в: develop и master
+Соглашение о наименовании: hotfix-*
+
+
+Ветви исправлений (hotfix branches) создаются из главной (master) ветви. Пускай, например, текущий производственный релиз имеет версию 1.2, и в нём (внезапно!) обнаруживается серьёзный баг. А изменения в ветви разработки (develop) ещё недостаточно стабильны, чтобы их издавать в новый релиз. Но мы можем создать новую ветвь исправлений и начать работать над решением проблемы:
+
+git checkout -b hotfix-1.1.1 master
+
+git commit -a -m "Fix some problem"
+
+
+
+
+
+
+
+
+
+
 
 
