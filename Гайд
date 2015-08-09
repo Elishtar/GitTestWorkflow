@@ -1,0 +1,35 @@
+Главные ветки:
+master
+develop
+
+Мы используем следующие типы ветвей:
+Ветви функциональностей (Feature branches)
+Ветви релизов (Release branches)
+Ветви исправлений (Hotfix branches)
+
+Ветви функциональностей (feature branches)
+Могут порождаться от: develop
+Должны вливаться в: develop
+Соглашение о наименовании: всё, за исключением master, develop, release-* или hotfix-*
+Примечаник: предпочтительно называть именем задачи.
+
+При начале работы над новой функциональностью делается ответвление от ветви разработки (develop).
+
+$ git checkout -b myfeature develop
+
+
+Завершённая функциональность вливается обратно в ветвь разработки (develop) и попадает в следующий релиз.
+
+Переключение на ветку develop
+$ git checkout develop
+
+Мерж изменений из ветки myfeature(--no-ff запрещает гиту делать объединение веток без мерж коммита)
+$ git merge --no-ff myfeature
+
+Удаление ветки myfeature
+$ git branch -d myfeature
+
+Вливание изменений в ветку develop
+$ git push origin develop
+
+
