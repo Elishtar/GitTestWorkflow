@@ -15,21 +15,31 @@ develop
 
 При начале работы над новой функциональностью делается ответвление от ветви разработки (develop).
 
-$ git checkout -b myfeature develop
-
+git checkout -b myfeature develop
 
 Завершённая функциональность вливается обратно в ветвь разработки (develop) и попадает в следующий релиз.
 
 Переключение на ветку develop
-$ git checkout develop
+git checkout develop
 
 Мерж изменений из ветки myfeature(--no-ff запрещает гиту делать объединение веток без мерж коммита)
-$ git merge --no-ff myfeature
+git merge --no-ff myfeature
 
 Удаление ветки myfeature
-$ git branch -d myfeature
+git branch -d myfeature
 
 Вливание изменений в ветку develop
-$ git push origin develop
+git push origin develop
+
+Ветви релизов (release branches)
+
+Могут порождаться от: develop
+Должны вливаться в: develop и master
+Соглашение о наименовании: release-*
+
+git checkout -b release-1.1
+
+git commit -a -m "Commit change"
+
 
 
